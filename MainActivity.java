@@ -31,10 +31,9 @@ public class MainActivity extends Activity {
         });
     }
 
-    public void userReg(View view)
+    public void userReg1(View view)
     {
         startActivity(new Intent(this,Register2.class));
-
     }
 
     public void userLogin(View view)

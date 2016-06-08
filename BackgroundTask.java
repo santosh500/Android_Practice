@@ -34,7 +34,8 @@ public class BackgroundTask extends AsyncTask<String,Void,String>
 
     protected  String doInBackground(String...params)
     {
-        String reg_url = "http://10.0.2.2/webapp/register.php";
+        String reg_url = "http://192.168.1.81/webapp/register.php";
+        String fake_url = "unity/webapp/register.php";
         String login_url = "http://10.0.2.2/webapp/login.php";
 
         String method = params[0];
@@ -49,23 +50,28 @@ public class BackgroundTask extends AsyncTask<String,Void,String>
                 httpURLConnection.setDoOutput(true);
                 OutputStream OS = httpURLConnection.getOutputStream();
                 BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(OS,"UTF-8"));
-                String data = URLEncoder.encode("user_id","UTF-8") + "="+URLEncoder.encode(name,"UTF-8");
+                String data = URLEncoder.encode("user_id","UTF-8") +"="+ URLEncoder.encode(name,"UTF-8");
                 bufferedWriter.write(data);
                 bufferedWriter.flush();
                 bufferedWriter.close();
                 OS.close();
                 InputStream IS = httpURLConnection.getInputStream();
                 IS.close();
-                return "Registration Success...";
+                return "Registration Success...yo";
             }
-           catch (MalformedURLException e) {
+           catch (MalformedURLException e)
+           {
+               e.printStackTrace();
+               return ("friends of england");
+            }
+            catch (IOException e)
+            {
                 e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
+                return("Ultimate Failure");
             }
 
         }
-        return null;
+        return method;
     }
 
     protected void onProgressUpdate(Void...values)

@@ -21,7 +21,7 @@ public class Register extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        ET_NAME = (EditText)findViewById(R.id.editText);
+        ET_NAME = (EditText)findViewById(R.id.editText2);
 
 
 
