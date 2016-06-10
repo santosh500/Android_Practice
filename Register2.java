@@ -32,7 +32,7 @@ public class Register2 extends Activity {
 
     public void userReg3(View view)
     {
-        System.out.print("hi brother");
+        //System.out.print("hi brother");
         name = ET_NAME1.getText().toString();
         String method = "register";
         BackgroundTask backgroundTask = new BackgroundTask(this);

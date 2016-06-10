@@ -10,16 +10,20 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 
 
 public class MainActivity extends Activity {
 
+    EditText a_text;
+    String login_name;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
+        a_text = (EditText)findViewById(R.id.editText);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -31,15 +35,20 @@ public class MainActivity extends Activity {
         });
     }
 
+    public void userLog1(View view)
+    {
+        login_name = a_text.getText().toString();
+        String method = "login";
+        BackgroundTask backgroundTask = new BackgroundTask(this);
+        backgroundTask.execute(method,login_name);
+    }
+
     public void userReg1(View view)
     {
         startActivity(new Intent(this,Register2.class));
     }
 
-    public void userLogin(View view)
-    {
 
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
